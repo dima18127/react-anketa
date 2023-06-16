@@ -1,14 +1,14 @@
 {
-  "main.css": "/react-anketa/static/css/main.40ba74e3.chunk.css",
-  "main.js": "/react-anketa/static/js/main.2ba2b0bc.chunk.js",
-  "main.js.map": "/react-anketa/static/js/main.2ba2b0bc.chunk.js.map",
-  "static/js/1.2e2510b3.chunk.js": "/react-anketa/static/js/1.2e2510b3.chunk.js",
-  "static/js/1.2e2510b3.chunk.js.map": "/react-anketa/static/js/1.2e2510b3.chunk.js.map",
-  "runtime~main.js": "/react-anketa/static/js/runtime~main.3b43632f.js",
-  "runtime~main.js.map": "/react-anketa/static/js/runtime~main.3b43632f.js.map",
-  "static/media/Person.module.css": "/react-anketa/static/media/Folder.d996a56b.svg",
-  "static/css/main.40ba74e3.chunk.css.map": "/react-anketa/static/css/main.40ba74e3.chunk.css.map",
-  "index.html": "/react-anketa/index.html",
-  "precache-manifest.69a823309850d8cff3c343dfde60b91c.js": "/react-anketa/precache-manifest.69a823309850d8cff3c343dfde60b91c.js",
-  "service-worker.js": "/react-anketa/service-worker.js"
+  "main.css": "/reactAnketa/static/css/main.e1461296.chunk.css",
+  "main.js": "/reactAnketa/static/js/main.39310bdc.chunk.js",
+  "main.js.map": "/reactAnketa/static/js/main.39310bdc.chunk.js.map",
+  "static/js/1.2e2510b3.chunk.js": "/reactAnketa/static/js/1.2e2510b3.chunk.js",
+  "static/js/1.2e2510b3.chunk.js.map": "/reactAnketa/static/js/1.2e2510b3.chunk.js.map",
+  "runtime~main.js": "/reactAnketa/static/js/runtime~main.5209f1af.js",
+  "runtime~main.js.map": "/reactAnketa/static/js/runtime~main.5209f1af.js.map",
+  "static/media/Person.module.css": "/reactAnketa/static/media/Folder.d996a56b.svg",
+  "static/css/main.e1461296.chunk.css.map": "/reactAnketa/static/css/main.e1461296.chunk.css.map",
+  "index.html": "/reactAnketa/index.html",
+  "precache-manifest.d4603f42eccb8e1dc79f4256507b0754.js": "/reactAnketa/precache-manifest.d4603f42eccb8e1dc79f4256507b0754.js",
+  "service-worker.js": "/reactAnketa/service-worker.js"
 }
