@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #d6d6d6;
+    font-family: "SB Sans Interface";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+h1 {
+    font-family: "SB Sans Interface";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+    margin: 0;
+}
+.container {
+    /* display: block; */
+
+    margin: 24px 233px;
+    padding: 25px 24px;
+    max-width: 900px;
+    /* max-height: 704px; */
+    background-color: #fafafa;
+    border-radius: 10px;
+    position: relative;
+    height: 700px;
+}
+.profile {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    margin-top: 0px;
+    padding-bottom: 25px;
+}
+.profile_wrap {
+    display: flex;
+}
+.ProfileData {
+    margin: 13px 20px 0px 20px;
+}
+.social {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.social a {
+    font-family: "SB Sans Interface";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    margin-left: 25px;
+    /* text-align: center; */
+    vertical-align: middle;
+    text-decoration: none;
+    position: relative;
+}
+.social a::before {
+    content: "";
+    height: 16px;
+    width: 16px;
+    display: block;
+    position: absolute;
+    left: -18px;
+    top: -2px;
+    background-image: url(../../public/icons/Folder.svg);
+}
+hr {
+    opacity: 0.3;
+}
+form {
+    max-width: 400px;
+    display: flex;
+    flex-flow: column;
+    /* position: relative; */
+}
+form input,
+select {
+    margin-top: 8px;
+    height: 44px;
+    display: block;
+    background: rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: 4px;
+    padding: 12px;
+}
+form span {
+    margin-top: 24px;
+    display: inline-block;
+}
+form .btn {
+    margin-top: 48px;
+}
+.btn {
+    display: inline-block;
+    color: #ffffff;
+    width: 79px;
+    height: 44px;
+    padding: 12px;
+    background: #5558fa;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
+    line-height: 20px;
+}
+#button-back {
+    background: #ffffff;
+    color: #5558fa;
+    border: solid 2px #5558fa;
+    position: absolute;
+    left: 80px;
+    bottom: 80px;
+}
+#button-next {
+    position: absolute;
+    right: 80px;
+    bottom: 80px;
+}
