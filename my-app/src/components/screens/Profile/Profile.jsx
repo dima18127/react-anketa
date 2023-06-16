@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import Person from './Person/Person.jsx';
 // import {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux'
-import { PHONE, EMAIL } from '../../redux/types.js'
+// import { PHONE, EMAIL } from '../../redux/types.js'
 import { addEmail, addPhone } from '../../redux/actions.js'
+import Input from '../../ui/input.jsx'
 
 
 
@@ -14,8 +15,6 @@ const Profile = function () {
   const email = useSelector(state => state.profile.email)
   const phone = useSelector(state => state.profile.phone)
   const state = useSelector(state=> state.profile)
-  // console.log('email:' + email);
-  // console.log("phone:"+phone);
   console.log(state);
 
   const SetPhone = (phone) =>{dispatch(addPhone(phone));}
@@ -26,16 +25,9 @@ const Profile = function () {
       <Person/>
       <form action="">
         <span>Номер телефона</span>
-        <input type="text" name="phone"
-         onChange={ e => SetPhone(e.target.value)}
-         value={phone}/>
-
+        <Input value={phone} func={SetPhone}/>
         <span>Email</span>
-        <input type="text" name="email" 
-        onChange={ e => SetEmail(e.target.value)}
-        value={email}
-        />
-
+        <Input value={email} func={SetEmail}/>
         <Link to="/auth" id="button-start" className='btn'>Начать
         </Link>
       </form>

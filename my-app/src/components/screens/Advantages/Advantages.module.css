@@ -15,3 +15,10 @@ p {
     margin-top: 8px;
     opacity: 0.5;
 }
+.plus {
+    margin-top: 8px;
+    width: 44px;
+    height: 44px;
+    border: 1.5px solid #5558fa;
+    border-radius: 4px;
+}

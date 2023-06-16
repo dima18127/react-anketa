@@ -1,53 +1,57 @@
-import React from 'react';
+import React ,{useState} from 'react';
 import { Link } from 'react-router-dom';
-import m from './Auth.module.css';
+import s from './Auth.module.css';
 import {useDispatch, useSelector} from 'react-redux'
-import { setNick } from '../../redux/actions.js';
+import { setNick, setName, setSerName,setMail } from '../../redux/actions.js';
+import Input from '../../ui/input.jsx';
+import Metric from '../../ui/metric/metric';
 // import { NICK } from '../../redux/types';
 
 function Auth() {
     const dispatch = useDispatch();
-    const getNick = (nick) => dispatch(setNick(nick))
-    const nick = useSelector(state => state.profile.nickName)
-    const state = useSelector(state=> state.profile)
+    const getNick = (nick) => dispatch(setNick(nick));
+    const getName = (name) => dispatch(setName(name));
+    const getSerName = (serName) => dispatch(setSerName(serName));
+    const getMail = (mail) => dispatch(setMail(mail))
+
+    const nick = useSelector(state => state.profile.nickName);
+    const name = useSelector(state => state.profile.name);
+    const serName = useSelector(state => state.profile.serName);
+    const sex = useSelector(state => state.profile.sex);
+
+    const state = useSelector(state=> state.profile);
+
     console.log(state);
+    const [width, valueChange] = useState({width: "25%"});
 
     return (
-        <div  className={m.container}>
-            <div className={m.metric}>
-                <div className="metricProgress"></div>
-                <span className='metricPoint metricPoint1'></span>
-                <span className='metricPoint metricPoint2'></span>
-                <span className='metricPoint metricPoint3'></span>
-            </div>
-
+        <div  className={s.container}>
+            <Metric width={width}/>
             <form action="">
-
                 <span>Nick name</span>
-                <input type="text" id="field-nickname" name="phone" 
-                onChange={e => getNick(e.target.value)} 
-                value={nick}
-                />
+                <Input value={nick} func={getNick}/>
                 <p>Tip</p>
 
                 <span>Name</span>
-                <input type="text" id="field-name" name="email" />
+                <Input value={name} func={getName}/>
                 <p>Tip</p>
 
                 <span>Sername</span>
-                <input type="text" id="field-sername" name="email" />
+                <Input value={serName} func={getSerName}/>
                 <p>Tip</p>
 
                 <span>Sex</span>
-                <select name="sex" id="field-sex" placeholder='не выбрано'>
-                    <option disabled selected defaultValue="not-determed"  >не выбрано</option>
+                <select name="sex" defaultValue={sex} id="field-sex" placeholder='не выбрано'
+                    onChange={(e) => {getMail(e.target.value)}}
+                    >
+                    <option disabled value="not-determed"  >не выбрано</option>
                     <option id="field-sex-option-man" value="man">man</option>
                     <option id="field-sex-option-woman" value="woman">woman</option>
                 </select>
 
 
                 <Link to="/" id="button-back" className='btn btn_back'>Назад</Link>
-                <Link to="/" id="button-next" className='btn'>Вперед</Link>
+                <Link to="/advantages" id="button-next" onClick={()=>valueChange({width: "50%"})} className='btn'>Вперед</Link>
             </form>
         </div>
     );

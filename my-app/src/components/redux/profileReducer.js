@@ -1,12 +1,12 @@
-import { PHONE, EMAIL, NICK } from './types.js'
+import { PHONE, EMAIL, NICK, NAME, SERNAME, SEX } from './types.js'
 
 const defaultState = {
     phone: '',
     email: '',
     nickName: '',
     name: '',
-    sername:'',
-    sex: ''
+    serName:'',
+    sex: 'not-determed'
 
   }
 export const profileReducer  = (state = defaultState, action)=>{
@@ -19,6 +19,15 @@ export const profileReducer  = (state = defaultState, action)=>{
          }
           case NICK: return {
             ...state, nickName:  action.nick
+         }
+          case NAME: return {
+            ...state, name:  action.name
+         }
+          case SERNAME: return {
+            ...state, serName:  action.serName
+         }
+          case SEX: return {
+            ...state, sex:  action.sex
          }
           default: return state
         }
