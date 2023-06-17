@@ -2,11 +2,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Person from './Person/Person.jsx';
-// import {useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux'
-// import { PHONE, EMAIL } from '../../redux/types.js'
-import { addEmail, addPhone } from '../../redux/actions.js'
-import Input from '../../ui/input.jsx'
+import {useDispatch, useSelector} from 'react-redux';
+import { addEmail, addPhone } from '../../redux/actions.js';
+import Input from '../../ui/input.jsx';
 
 
 
@@ -28,7 +26,7 @@ const Profile = function () {
         <Input value={phone} func={SetPhone}/>
         <span>Email</span>
         <Input value={email} func={SetEmail}/>
-        <Link to="/auth" id="button-start" className='btn'>Начать
+        <Link to="/create" id="button-start" className='btn'>Начать
         </Link>
       </form>
   </div>);

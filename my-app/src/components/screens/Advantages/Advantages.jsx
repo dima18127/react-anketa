@@ -21,10 +21,14 @@ function Auth() {
             <Input/>
             <Input/>
             <button  to="/auth" id="add" className={s.plus}>+</button>
-            <input type="radio" />
+            <input id="field-checkbox-group-option-1" type="radio" />
             <input type="radio" />
             <input type="radio" />
             <input type="checkbox" />
+            Checkbox group
+1
+2
+3
             <input type="checkbox" />
             <input type="checkbox" />
 

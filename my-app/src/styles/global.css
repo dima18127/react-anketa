@@ -72,3 +72,6 @@ form .btn {
     right: 80px;
     bottom: 80px;
 }
+#button-start {
+    max-width: 80px;
+}
