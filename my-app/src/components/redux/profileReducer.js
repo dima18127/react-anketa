@@ -1,12 +1,12 @@
 import { PHONE, EMAIL, NICK, NAME, SERNAME, SEX } from './types.js'
 
 const defaultState = {
-    phone: '',
-    email: '',
-    nickName: '',
-    name: '',
-    serName:'',
-    sex: 'not-determed'
+    phone: '89179824659',
+    email: 'dima18127@yandex.ru',
+    nickName: 'dima18127',
+    name: 'Дмитрий',
+    serName:'Макаров',
+    sex: ''
 
   }
 export const profileReducer  = (state = defaultState, action)=>{

@@ -26,11 +26,7 @@ h1 {
     background-color: #fafafa;
     border-radius: 10px;
     position: relative;
-    height: 700px;
-}
-
-hr {
-    opacity: 0.3;
+    /* height: 700px; */
 }
 form {
     max-width: 400px;
@@ -74,4 +70,27 @@ form .btn {
 }
 #button-start {
     max-width: 80px;
+}
+[disabled] {
+    opacity: 0.7;
+}
+form input[type="text"], input[type="number"], 
+select {
+    margin-top: 8px;
+    height: 44px;
+    width: 300px;
+    display: block;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: 4px;
+    padding: 12px;
+}
+.input {
+    margin-top: 8px;
+    height: 44px;
+    display: block;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: 4px;
+    padding: 12px; 
 }

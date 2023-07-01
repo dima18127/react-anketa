@@ -1,6 +1,6 @@
 .container {
     box-sizing: border-box;
-    height: 820px;
+    min-height: 820px;
     margin: 24px 233px;
     padding: 25px 110px;
     max-width: 900px;

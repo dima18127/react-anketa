@@ -1,0 +1,15 @@
+.addBtn{
+    margin-top: 8px;
+    width: 44px;
+    height: 44px;
+    border: 1.5px solid #5558fa;
+    border-radius: 4px;
+}
+input[type="text"] {
+    display: inline-block  !important;
+}
+.img{
+    /* display: block; */
+    margin-left: 20px;
+    /* display: inline-block !important; */
+}

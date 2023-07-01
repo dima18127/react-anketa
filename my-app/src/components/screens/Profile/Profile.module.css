@@ -1,6 +1,4 @@
-.container {
-    height: 820px;
-}
-.btn {
-    width: 100px;
+hr {
+    opacity: 0.3;
+    margin-top: 24px;
 }

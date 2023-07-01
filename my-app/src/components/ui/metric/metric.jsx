@@ -3,13 +3,13 @@ import s from './metric.module.css'
 
 function metric(props) {
     const{width, tab} = props;
-    console.log( width);
+    // console.log( width);
     // const {fillMetric} = props;
     // const AddActive = (tab) => {
 
     // }
     const getWidth = (width)=>{
-        console.log(width);
+        // console.log(width);
          if (width==1){
             return {width: "50%"}
         }

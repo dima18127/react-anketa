@@ -1,33 +1,73 @@
-
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React ,{useState, useEffect,useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Person from './Person/Person.jsx';
 import {useDispatch, useSelector} from 'react-redux';
 import { addEmail, addPhone } from '../../redux/actions.js';
-import Input from '../../ui/input.jsx';
+import { useForm, SubmitHandler } from "react-hook-form";
+import InputMask from 'react-input-mask';
+
 
 
 
 const Profile = function () {
-  const dispatch = useDispatch();
+const navigate = useNavigate();
+
+const phone = useSelector(state => state.profile.phone)
   const email = useSelector(state => state.profile.email)
-  const phone = useSelector(state => state.profile.phone)
+  
+
+  const dispatch = useDispatch();
   const state = useSelector(state=> state.profile)
   console.log(state);
-
+  
   const SetPhone = (phone) =>{dispatch(addPhone(phone));}
   const SetEmail = (email) =>{dispatch(addEmail(email));}
+  
 
+  const {register,handleSubmit, formState: { errors, isValid } } = useForm({defaultValues: {
+    email:  email,
+    phone: phone,
+    },mode: 'onBlur'});
+    const onSubmit = (data) => {
+      console.log(data);
+      SetPhone(data.phone);
+      SetEmail(data.email);
+      navigate('/create')  
+    };
   return (
   <div className='container'>
       <Person/>
-      <form action="">
+      <form onSubmit={handleSubmit(onSubmit)} action="">
         <span>Номер телефона</span>
-        <Input value={phone} func={SetPhone}/>
+
+        <InputMask mask="+7(999)999 99 99" className='input'
+        placeholder='+7(999)999 99 99'
+        
+
+        {...register("phone", {
+          required: 'enter your number',
+        })}
+        />
+                       {errors.phone && (
+            <p className="errorMsg">{errors.phone.message}</p>
+        )}
+ 
         <span>Email</span>
-        <Input value={email} func={SetEmail}/>
-        <Link to="/create" id="button-start" className='btn'>Начать
-        </Link>
+        <input type="text"   
+        {...register("email", {
+          required: "Email is required" ,
+           pattern: {value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,message : "Email is not valid."}
+          })}
+        />
+        {errors.email && (
+            <p className="errorMsg">{errors.email.message}</p>
+        )}
+
+        <button
+        disabled={!isValid}
+         type='submit' id="button-start" className='btn'>Далее
+        </button> 
+
       </form>
   </div>);
 }
