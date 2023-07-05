@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "499762b6baee40f13381",
+    "revision": "f8c9a06a4539ea4b8a80",
     "url": "/react-anketa/static/css/main.e703d35e.chunk.css"
   },
   {
-    "revision": "499762b6baee40f13381",
-    "url": "/react-anketa/static/js/main.499762b6.chunk.js"
+    "revision": "f8c9a06a4539ea4b8a80",
+    "url": "/react-anketa/static/js/main.f8c9a06a.chunk.js"
   },
   {
     "revision": "264fb91a612493ebd581",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/react-anketa/static/media/Folder.d996a56b.svg"
   },
   {
-    "revision": "5acd1445bca16123df004b8a97dbab88",
+    "revision": "b66bb013be417d58615db66f8135396d",
     "url": "/react-anketa/index.html"
   }
 ];

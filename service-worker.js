@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/react-anketa/precache-manifest.10e02940c3ed9e06f3e0f63277f05300.js"
+  "/react-anketa/precache-manifest.23f4a78ed5f900566adbe0863a8d97a8.js"
 );
 
 workbox.clientsClaim();

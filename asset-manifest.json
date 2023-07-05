@@ -1,7 +1,7 @@
 {
   "main.css": "/react-anketa/static/css/main.e703d35e.chunk.css",
-  "main.js": "/react-anketa/static/js/main.499762b6.chunk.js",
-  "main.js.map": "/react-anketa/static/js/main.499762b6.chunk.js.map",
+  "main.js": "/react-anketa/static/js/main.f8c9a06a.chunk.js",
+  "main.js.map": "/react-anketa/static/js/main.f8c9a06a.chunk.js.map",
   "static/js/1.264fb91a.chunk.js": "/react-anketa/static/js/1.264fb91a.chunk.js",
   "static/js/1.264fb91a.chunk.js.map": "/react-anketa/static/js/1.264fb91a.chunk.js.map",
   "runtime~main.js": "/react-anketa/static/js/runtime~main.3b43632f.js",
@@ -9,6 +9,6 @@
   "static/media/Person.module.css": "/react-anketa/static/media/Folder.d996a56b.svg",
   "static/css/main.e703d35e.chunk.css.map": "/react-anketa/static/css/main.e703d35e.chunk.css.map",
   "index.html": "/react-anketa/index.html",
-  "precache-manifest.10e02940c3ed9e06f3e0f63277f05300.js": "/react-anketa/precache-manifest.10e02940c3ed9e06f3e0f63277f05300.js",
+  "precache-manifest.23f4a78ed5f900566adbe0863a8d97a8.js": "/react-anketa/precache-manifest.23f4a78ed5f900566adbe0863a8d97a8.js",
   "service-worker.js": "/react-anketa/service-worker.js"
 }
