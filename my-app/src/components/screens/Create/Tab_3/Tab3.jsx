@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import s from './Tab3.module.css'
 import {useForm} from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux';
-import { setAbout } from '../../../toolkitRedux/toolkitReducer';
+import { setAbout } from '../../../toolkitRedux/toolkitSlice';
 import Modal from '../../../ui/modal/Modal';
 
 

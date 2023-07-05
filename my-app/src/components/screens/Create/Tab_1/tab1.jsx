@@ -1,8 +1,8 @@
-import React  from 'react';
+import React, { useEffect }  from 'react';
 import { useNavigate } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux'
 import { useForm} from "react-hook-form";
-import { setMail, setName, setNick, setSerName } from '../../../toolkitRedux/toolkitReducer';
+import { setMail, setName, setNick, setSerName } from '../../../toolkitRedux/toolkitSlice.js';
 
 
 
@@ -13,7 +13,7 @@ function Tab1({tab,setTab,widthSet}) {
 
 
 // валидация
-    const {handleSubmit,register, formState: { errors,isValid  } } = useForm({
+    const {handleSubmit,register, formState: { errors,isValid  }, } = useForm({
         defaultValues: {
             nick:  nick,
             name: name,
@@ -26,9 +26,13 @@ function Tab1({tab,setTab,widthSet}) {
         Dispatch(setSerName(data.sername))
         Dispatch(setMail(data.sex))
         setTab(tab+1)
-        widthSet(1) 
+        widthSet(1)
+        // console.log(state); 
       };
-
+      let handleBackClick = (e)=>{ 
+        e.preventDefault();
+        Navigate(-1);
+      }
     return ( 
         <div>
         <form onSubmit={handleSubmit(onSubmit)} >
@@ -88,7 +92,7 @@ function Tab1({tab,setTab,widthSet}) {
                 <option id="field-sex-option-woman" value="woman">woman</option>
             </select>
 
-            <button  id="button-back" className='btn btn_back' onClick={()=>{Navigate('/');}}>Назад</button>
+            <button  id="button-back" className='btn btn_back' onClick={handleBackClick}>Назад</button>
             <button disabled={!isValid} id="button-next" className='btn'>Вперед
             </button>
         </form>

@@ -3,7 +3,7 @@ import s from "./tab2.module.css";
 import { useForm, useFieldArray } from 'react-hook-form';
 import {useDispatch, useSelector} from 'react-redux'
 // import { setADV, setCheck, setRadio,} from '../../../redux/actions.js';
-import { setADV, setCheck, setRadio,} from '../../../toolkitRedux/toolkitReducer';
+import { setADV, setCheck, setRadio,} from '../../../toolkitRedux/toolkitSlice';
 
 // import logo from "../../../../../public/icons/delete.svg";
 
@@ -12,8 +12,8 @@ function Tab2({ tab, setTab,widthSet }) {
     const state = useSelector(state=> state.toolkit)
     const {advantages,radiobox,checkbox} = useSelector(state => state.toolkit);
 
-
- console.log('render');
+    console.log('render');
+    console.log(state);
  const CheckBoxArr =[1,2,3];
  const RadioArr =[1,2,3];
  const { handleSubmit, register, control, formState: { errors, isValid } } = useForm({
@@ -40,6 +40,12 @@ const { fields, append, remove } = useFieldArray({
 
   const addInput  = () => append({ value: '' });
   const delInp = (index) => remove(index);
+
+  let handleBackClick = (e)=>{ 
+    e.preventDefault();
+    setTab(tab - 1) ;
+  }
+  
   return (
     <>
       <span>Advantages</span>
@@ -99,8 +105,8 @@ const { fields, append, remove } = useFieldArray({
            type="radio"/> {item}
         </label>})}
 
-        <button id="button-back" className='btn btn_back' onClick={() => { setTab(tab - 1) }}>Назад</button>
-        <button disabled={!isValid} id="button-next" className='btn'>Вперед</button>
+        <button id="button-back" className='btn btn_back' onClick={(e) => {handleBackClick(e)}}>Назад</button>
+        <button disabled={!isValid} id="button-next" className='btn' >Вперед</button>
       </form>
     </>
   );
