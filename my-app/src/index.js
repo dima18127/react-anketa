@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
 import {BrowserRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
@@ -8,8 +7,9 @@ import {Provider} from 'react-redux';
 import {rootReducer} from './components/redux/rootReducer';
 import {createStore} from 'redux';
 import { HashRouter as Router } from "react-router-dom";
+import { store } from './components/toolkitRedux';
 
-const store = createStore(rootReducer)
+// const store = createStore(rootReducer)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>

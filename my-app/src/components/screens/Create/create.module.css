@@ -1,7 +1,7 @@
-.container {
+.container {display: block;
     box-sizing: border-box;
     min-height: 820px;
-    margin: 24px 233px;
+    margin: 24px auto;
     padding: 25px 110px;
     max-width: 900px;
     background-color: #fafafa;

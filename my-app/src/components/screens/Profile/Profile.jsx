@@ -2,9 +2,10 @@ import React ,{useState, useEffect,useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Person from './Person/Person.jsx';
 import {useDispatch, useSelector} from 'react-redux';
-import { addEmail, addPhone } from '../../redux/actions.js';
 import { useForm, SubmitHandler } from "react-hook-form";
 import InputMask from 'react-input-mask';
+import { addEmail, addPhone } from '../../toolkitRedux/toolkitReducer.js';
+import s from "./Profile.module.css"
 
 
 
@@ -12,8 +13,8 @@ import InputMask from 'react-input-mask';
 const Profile = function () {
 const navigate = useNavigate();
 
-const phone = useSelector(state => state.profile.phone)
-  const email = useSelector(state => state.profile.email)
+const phone = useSelector(state => state.toolkit.phone)
+  const email = useSelector(state => state.toolkit.email)
   
 
   const dispatch = useDispatch();
@@ -65,7 +66,7 @@ const phone = useSelector(state => state.profile.phone)
 
         <button
         disabled={!isValid}
-         type='submit' id="button-start" className='btn'>Далее
+         type='submit' id="button-start" className={`${s.btnstart} btn`}>Далее
         </button> 
 
       </form>

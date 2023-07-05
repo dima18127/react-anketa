@@ -1,78 +1,106 @@
-import React, { useState, useRef } from 'react';
+import React, {useEffect,useCallback} from 'react';
 import s from "./tab2.module.css";
-import { useForm } from 'react-hook-form';
+import { useForm, useFieldArray } from 'react-hook-form';
+import {useDispatch, useSelector} from 'react-redux'
+// import { setADV, setCheck, setRadio,} from '../../../redux/actions.js';
+import { setADV, setCheck, setRadio,} from '../../../toolkitRedux/toolkitReducer';
 
-function Tab2({ tab, setTab }) {
-  let [count, setCount] = useState(3);
-  let [adv, setAdv] = useState([1, 2, 3]);
+// import logo from "../../../../../public/icons/delete.svg";
 
-  let addInp = () => {
-    setCount(++count);
-    setAdv([...adv, count]);
-  };
+function Tab2({ tab, setTab,widthSet }) {
+    const dispatch = useDispatch();
+    const state = useSelector(state=> state.toolkit)
+    const {advantages,radiobox,checkbox} = useSelector(state => state.toolkit);
 
-  let delInp = (item) => {
-    setAdv((adv) => adv.filter((item1) => item1 !== item));
-  };
 
-  const { handleSubmit, register, formState: { errors } } = useForm({
-    defaultValues: {},
+ console.log('render');
+ const CheckBoxArr =[1,2,3];
+ const RadioArr =[1,2,3];
+ const { handleSubmit, register, control, formState: { errors, isValid } } = useForm({
+    defaultValues: {
+      advantages: advantages,
+      checkbox: checkbox, // Add default value for checkbox array
+      radiobox: radiobox
+    },
     mode: 'onTouched'
+});
+
+const { fields, append, remove } = useFieldArray({
+    control,
+    name: 'advantages' // Name of the array field
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(setADV(data.advantages));
+    dispatch(setCheck(data.checkbox));
+    dispatch(setRadio(data.radiobox));
+    widthSet(2)
+    setTab(tab+1)
   };
-  console.log(errors);
 
+  const addInput  = () => append({ value: '' });
+  const delInp = (index) => remove(index);
   return (
     <>
       <span>Advantages</span>
       <form onSubmit={handleSubmit(onSubmit)}>
-        {adv.map((item) => (
-          <div key={item}>
+        {fields.map((item, index) => (
+          <div key={item.id}>
             <input
-              {...register(`adv${item}`, { required: 'adv req' })}
-              id={`field-advantages-${item}`}
+              {...register(`advantages.${index}.value`, { required: 'advantage option required' })}
+              id={`field-advantages-${index + 1}`}
               type="text"
             />
             <img
-              id={`button-remove-${item}`}
-              onClick={() => delInp(item)}
+              id={`button-remove-${index + 1}`}
+              onClick={()=>delInp(index)}
               className={s.img}
-              src="icons/delete.svg"
+              src='icons/delete.svg'
+              alt="Remove"
             />
-            {errors[`adv${item}`] && (
-              <p className="errorMsg">{errors[`adv${item}`].message}</p>
+            {errors.advantages && errors.advantages[index] && (
+              <p className="errorMsg">{errors.advantages[index].value.message}</p>
             )}
           </div>
         ))}
-        {errors.adv && <p className="errorMsg">{errors.adv.message}</p>}
 
-        <button onClick={addInp} to="/auth" id="button-add" className={s.addBtn}>+</button>
+        <button
+          onClick={addInput}
+          to="/auth"
+          id="button-add"
+          className={s.addBtn}
+        >
+          +
+        </button>
 
         <span>Checkbox group</span>
-        <label>
-          <input id="field-checkbox-group-option-1" type="checkbox" /> 1
-        </label>
-        <label>
-          <input id="field-checkbox-group-option-2" type="checkbox" /> 2
-        </label>
-        <label>
-          <input id="field-checkbox-group-option-3" type="checkbox" /> 3
-        </label>
+        {CheckBoxArr.map((item,index) => { 
+        return <label key={index}>
+                    <input
+                    {...register(`checkbox`,{
+                    required: "Необходимо выбрать"
+                    })}
+                    value={item}
+                    key={index} 
+                    id={`field-checkbox-group-option-${index}`} 
+                    type="checkbox" />{item}
+                </label>})}
+                    {errors.checkbox && <p>{errors.checkbox.message} </p>}
+
         <span>Radio group</span>
-        <label>
-          <input name='radio' id="field-radio-group-option-1" type="radio" value='1' /> 1
-        </label>
-        <label>
-          <input name='radio' id="field-radio-group-option-2" type="radio" value='2' /> 2
-        </label>
-        <label>
-          <input name='radio' id="field-radio-group-option-3" type="radio" value='3' /> 3
-        </label>
+        {RadioArr.map((item,index) => { return <label key={index}>
+          <input
+          {...register('radiobox',{
+            required: "Необходимо выбрать"
+          })}
+          key={index} 
+          value={item}
+          id={`field-radio-group-option-${index}`}
+           type="radio"/> {item}
+        </label>})}
+
         <button id="button-back" className='btn btn_back' onClick={() => { setTab(tab - 1) }}>Назад</button>
-        <button id="button-next" className='btn' onClick={() => { setTab(tab + 1) }}>Вперед</button>
+        <button disabled={!isValid} id="button-next" className='btn'>Вперед</button>
       </form>
     </>
   );
